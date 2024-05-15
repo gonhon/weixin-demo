@@ -3,19 +3,20 @@ package main
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"log"
 	"time"
 	"weixin-demo/util"
+
+	"github.com/gin-gonic/gin"
 )
 
-const Token = "coleliedev"
+const Token = "hzguode"
 
 func main() {
 	router := gin.Default()
 
-	router.GET("/wx", WXCheckSignature)
-	router.POST("/wx", WXMsgReceive)
+	router.GET("/plugins/wechat.action", WXCheckSignature)
+	router.POST("/plugins/wechat.action", WXMsgReceive)
 
 	log.Fatalln(router.Run(":8002"))
 }
